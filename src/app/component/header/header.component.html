@@ -1,1 +1,31 @@
-<p>header works!</p>
+<header>
+    <div class="flex items-center justify-between pr-4">
+        <img src="assets/img/Logo.png" alt="Logo de Trouve ton artisan avec la région Auvergne-Rhône-Alpes" class="w-full max-w-1/2">
+        <div class="flex gap-x-8">
+            <button (click)="toggleMenu()" class="sm:hidden block hover:cursor-pointer">
+                <img *ngIf="!menuOpen" src="assets/img/bars-solid.svg" alt="menu burger" class="w-7">
+                <img *ngIf="menuOpen" src="assets/img/xmark-solid.svg" alt="image d'une crois pour fermer le menu" class="w-7">
+            </button>
+            <button>
+                <img src="assets/img/magnifying-glass-solid.svg" alt="image loupe pour la recherche" class="w-7">
+            </button>
+        </div>
+    </div>
+    <nav [ngClass]="{'translate-x-0' : menuOpen, 'translate-x-full' : !menuOpen}"
+    class="flex justify-center items-center fixed bg-red-950 z-50 w-full h-screen transform transition-transform duration-300">
+        <ul class="text-2xl space-y-6 w-full p-8">
+            <li class="border-b-2">
+                <a>Bâtiment</a>
+            </li>
+            <li>
+                <a>Fabrication</a>
+            </li>
+            <li>
+                <a href="">Services</a>
+            </li>
+            <li>
+                <a href="">Alimentation</a>
+            </li>
+        </ul>
+    </nav>
+</header>
