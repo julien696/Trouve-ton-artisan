@@ -1,31 +1,61 @@
-<header>
-    <div class="flex items-center justify-between pr-4">
-        <img src="assets/img/Logo.png" alt="Logo de Trouve ton artisan avec la région Auvergne-Rhône-Alpes" class="w-full max-w-1/2">
-        <div class="flex gap-x-8">
-            <button (click)="toggleMenu()" class="sm:hidden block hover:cursor-pointer">
+<header class="bg-bgc">
+    <div class="flex items-center justify-between p-4 md:p-8">
+        <img src="assets/img/Logo.jpg" alt="Logo de Trouve ton artisan avec la région Auvergne-Rhône-Alpes" class="max-w-50 md:max-w-60">
+        <div class="flex justify-end gap-x-8 w-full pr-4">
+            <button (click)="toggleMenu()" class="md:hidden block hover:cursor-pointer">
                 <img *ngIf="!menuOpen" src="assets/img/bars-solid.svg" alt="menu burger" class="w-7">
                 <img *ngIf="menuOpen" src="assets/img/xmark-solid.svg" alt="image d'une crois pour fermer le menu" class="w-7">
             </button>
-            <button>
-                <img src="assets/img/magnifying-glass-solid.svg" alt="image loupe pour la recherche" class="w-7">
+            <button (click)="searchBar()">
+                <img src="assets/img/magnifying-glass-solid.svg" alt="image loupe pour la recherche" class="w-7 md:hidden hover:cursor-pointer">
             </button>
         </div>
+        <div class="max-md:hidden xl:flex items-center w-full gap-x-8">
+            <nav class="max-md:hidden">
+                <ul class="flex space-x-6 text-xl">
+                    <li>
+                        <a href="">Bâtiment</a>
+                    </li>
+                    <li>
+                        <a href="">Fabrication</a>
+                    </li>
+                    <li>
+                        <a href="">Services</a>
+                    </li>
+                    <li>
+                        <a href="">Alimentation</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="max-md:hidden flex justify-end">
+                <div class="flex justify-between border-b-2 border-r-2 p-2 mt-4 w-2/3 xl:w-70 xl:mt-0">
+                    <input type="text" placeholder="recherche">
+                    <img src="assets/img/magnifying-glass-solid.svg" alt="icon de recherche loupe" class="w-4">
+                </div>
+            </div>
+        </div>    
     </div>
-    <nav [ngClass]="{'translate-x-0' : menuOpen, 'translate-x-full' : !menuOpen}"
-    class="flex justify-center items-center fixed bg-red-950 z-50 w-full h-screen transform transition-transform duration-300">
+    <nav [ngClass]="{'opacity-100' : menuOpen, 'opacity-0' : !menuOpen}"
+            class="md:hidden flex justify-center items-start fixed transform transition-all duration-300 bg-bgc z-50 w-full h-screen">
         <ul class="text-2xl space-y-6 w-full p-8">
-            <li class="border-b-2">
-                <a>Bâtiment</a>
+            <li class="border-b-2 border-darkBlue">
+                <a href="#" (click)="closeMenu()">Bâtiment</a>
             </li>
-            <li>
-                <a>Fabrication</a>
+            <li class="border-b-2 border-darkBlue">
+                <a href="#" (click)="closeMenu()">Fabrication</a>
             </li>
-            <li>
-                <a href="">Services</a>
+            <li class="border-b-2 border-darkBlue">
+                <a href="#" (click)="closeMenu()">Services</a>
             </li>
-            <li>
-                <a href="">Alimentation</a>
+            <li class="border-b-2 border-darkBlue">
+                <a href="#" (click)="closeMenu()">Alimentation</a>
             </li>
         </ul>
     </nav>
+    <div [ngClass]="{'block': searchBarOpen, 'hidden' : !searchBarOpen}" class="flex justify-start">
+        <div class="flex justify-between border-b-2 border-r-2 p-2 mx-2 w-full md:hidden">
+            <input type="text" placeholder="recherche">
+            <img src="assets/img/magnifying-glass-solid.svg" alt="icon de recherche loupe" class="w-4">
+        </div>
+    </div>
 </header>
