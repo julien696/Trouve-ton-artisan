@@ -13,7 +13,7 @@ export class HeaderComponent {
   searchBarOpen = false;
   
   toggleMenu() {
-    this.menuOpen = !this.menuOpen
+    this.menuOpen = !this.menuOpen;
   }
 
   closeMenu() {
