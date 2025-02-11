@@ -1,1 +1,5 @@
-<p>artisan-list works!</p>
+<ul>
+    <li *ngFor="let artisan of filteredArtisansByCategory">
+        {{artisan.name}}
+    </li>
+</ul>

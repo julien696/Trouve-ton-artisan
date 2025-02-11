@@ -1,6 +1,8 @@
 <header class="bg-bgc">
     <div class="flex items-center justify-between p-4 md:p-8 shadow-xs">
-        <img src="assets/img/Logo.jpg" alt="Logo de Trouve ton artisan avec la région Auvergne-Rhône-Alpes" class="max-w-50 md:max-w-60">
+        <a routerLink="/">
+            <img src="assets/img/Logo.jpg" alt="Logo de Trouve ton artisan avec la région Auvergne-Rhône-Alpes" class="max-w-50 md:max-w-60">
+        </a>
         <div class="flex justify-end gap-x-8 w-full pr-4">
             <button (click)="toggleMenu()" class="md:hidden block hover:cursor-pointer">
                 <img *ngIf="!menuOpen" src="assets/img/bars-solid.svg" alt="menu burger" class="w-7">
@@ -14,16 +16,16 @@
             <nav class="max-md:hidden">
                 <ul class="flex space-x-6 text-xl">
                     <li>
-                        <a href="">Bâtiment</a>
+                        <a routerLink="artisan-list/Bâtiment">Bâtiment</a>
                     </li>
                     <li>
-                        <a href="">Fabrication</a>
+                        <a routerLink="artisan-list/Fabrication">Fabrication</a>
                     </li>
                     <li>
-                        <a href="">Services</a>
+                        <a routerLink="artisan-list/Service">Services</a>
                     </li>
                     <li>
-                        <a href="">Alimentation</a>
+                        <a routerLink="artisan-list/Alimentation">Alimentation</a>
                     </li>
                 </ul>
             </nav>
@@ -39,16 +41,24 @@
             class="md:hidden flex justify-center items-start fixed transform transition-all duration-300 bg-bgc z-50 w-full h-screen">
         <ul class="text-2xl space-y-6 w-full p-8">
             <li class="border-b-2 border-darkBlue">
-                <a href="#" (click)="closeMenu()">Bâtiment</a>
+                <a routerLink="artisan-list/Bâtiment" (click)="closeMenu()">
+                    Bâtiment
+                </a>
             </li>
             <li class="border-b-2 border-darkBlue">
-                <a href="#" (click)="closeMenu()">Fabrication</a>
+                <a routerLink="artisan-list/Fabrication" (click)="closeMenu()">
+                    Fabrication
+                </a>
             </li>
             <li class="border-b-2 border-darkBlue">
-                <a href="#" (click)="closeMenu()">Services</a>
+                <a routerLink="artisan-list/Services" (click)="closeMenu()">
+                    Services
+                </a>
             </li>
             <li class="border-b-2 border-darkBlue">
-                <a href="#" (click)="closeMenu()">Alimentation</a>
+                <a routerLink="artisan-list/Alimentation" (click)="closeMenu()">
+                    Alimentation
+                </a>
             </li>
         </ul>
     </nav>

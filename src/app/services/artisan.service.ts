@@ -15,4 +15,5 @@ export class ArtisanService {
   getArtisans() : Observable<Artisan[]> {
     return this.http.get<Artisan[]>(this.dataUrl)
   }
+
 }
