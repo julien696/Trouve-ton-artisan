@@ -3,10 +3,11 @@ import { Artisan } from '../../model/artisan.model';
 import { ArtisanService } from '../../services/artisan.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FilteredArtisanByCategoryPipe } from '../../pipes/filtered-artisan-by-category.pipe';
 
 @Component({
   selector: 'app-artisan-list',
-  imports: [CommonModule],
+  imports: [CommonModule, FilteredArtisanByCategoryPipe],
   templateUrl: './artisan-list.component.html',
   styleUrl: './artisan-list.component.css'
 })
