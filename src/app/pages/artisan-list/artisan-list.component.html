@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let artisan of filteredArtisansByCategory">
+    <li *ngFor="let artisan of artisans | filteredArtisanByCategory : category">
         {{artisan.name}}
     </li>
 </ul>
