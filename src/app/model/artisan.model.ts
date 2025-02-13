@@ -1,7 +1,7 @@
 export interface Artisan {
     id : number;
     name : string;
-    speciality : string;
+    specialty : string;
     note : number;
     location : string;
     about : string;
