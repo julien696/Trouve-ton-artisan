@@ -1,20 +1,22 @@
 <main>
-    <div class="m-8">
-        <h2 class="text-xl text-darkBlue text-center">Les Artisans du mois</h2>
-        <div class="flex">
-            <div *ngFor="let artisan of artisans" class="flex flex-col border-1 border-darkBlue rounded-lg">
-                <h4>{{artisan.name}}</h4>
-                <span class="block text-base text-textColor">{{artisan.specialty}}</span>
-                <span class="block text-base text-textColor">{{artisan.location}}</span>
-                <span class="block">{{artisan.note}}</span>
-            </div>
+    <div class="mx-6 mt-6">
+        <h2 class="text-xl text-darkBlue text-center font-semibold m-4 p-4">Les Artisans du mois</h2>
+        <div class="flex max-[540px]:justify-start justify-center gap-x-4 overflow-x-auto pt-4">
+            <a [routerLink]="['/artisan','artisan.id']" *ngFor="let artisan of artisans | filteredArtisanByTop : true">
+                <div class="flex flex-col border-1 border-darkBlue rounded-lg items-center min-w-[150px] cursor-pointer">
+                    <h4 class="text-center text-base font-medium py-2 px-1">{{artisan.name}}</h4>
+                    <span class="block px-2 text-base text-textColor">{{artisan.specialty}}</span>
+                    <span class="block px-2 text-base text-textColor">{{artisan.location}}</span>
+                    <span class="block">{{artisan.note}}</span>
+                </div>
+            </a>
         </div>
     </div>
     <div class="my-16">
-        <h1 class="text-2xl text-darkBlue text-center p-8 m-8">Comment trouver son artisan ?</h1>
+        <h1 class="text-2xl text-darkBlue text-center font-bold p-8 m-8">Comment trouver son artisan ?</h1>
         <div class="px-4 max-sm:mx-8 sm:mx-16 border-l-2 border-darkBlue ">
             <div class="pl-4 pr-4 pb-4 ">
-                <h3 class="text-lg text-darkBlue p-4">
+                <h3 class="text-lg text-darkBlue p-4 font-medium">
                     Étape 1 :
                 </h3>
                 <p class="text-base text-textColor max-sm:px-4 px-8">
@@ -23,7 +25,7 @@
                 </p>
             </div>
             <div class="p-4 ">
-                <h3 class="text-lg text-darkBlue p-4">
+                <h3 class="text-lg text-darkBlue font-medium p-4">
                     Étape 2 :
                 </h3>
                 <p class="text-base text-textColor max-sm:px-4 px-8">
@@ -31,7 +33,7 @@
                 </p>
             </div>
             <div class="p-4 ">
-                <h3 class="text-lg text-darkBlue p-4">
+                <h3 class="text-lg text-darkBlue font-medium p-4">
                     Étape 3 :
                 </h3>
                 <p class="text-base text-textColor max-sm:px-4 px-8">
@@ -39,7 +41,7 @@
                 </p>
             </div>
             <div class="p-4 ">
-                <h3 class="text-lg text-darkBlue p-4">
+                <h3 class="text-lg text-darkBlue font-medium p-4">
                     Étape 4 :
                 </h3>
                 <p class="text-base text-textColor max-sm:px-4 px-8">
