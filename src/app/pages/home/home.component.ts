@@ -2,10 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ArtisanService } from '../../services/artisan.service';
 import { Artisan } from '../../model/artisan.model';
 import { CommonModule } from '@angular/common';
+import { FilteredArtisanByTopPipe } from '../../pipes/filtered-artisan-by-top.pipe';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, FilteredArtisanByTopPipe, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
