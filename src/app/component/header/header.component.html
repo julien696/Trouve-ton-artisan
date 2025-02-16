@@ -15,16 +15,16 @@
         <div class="max-md:hidden xl:flex items-center w-full gap-x-8">
             <nav class="max-md:hidden">
                 <ul class="flex space-x-6 text-xl">
-                    <li>
+                    <li class="hover:text-lightBlue">
                         <a routerLink="artisan-list/Bâtiment">Bâtiment</a>
                     </li>
-                    <li>
+                    <li class="hover:text-lightBlue">
                         <a routerLink="artisan-list/Fabrication">Fabrication</a>
                     </li>
-                    <li>
+                    <li class="hover:text-lightBlue">
                         <a routerLink="artisan-list/Services">Services</a>
                     </li>
-                    <li>
+                    <li class="hover:text-lightBlue">
                         <a routerLink="artisan-list/Alimentation">Alimentation</a>
                     </li>
                 </ul>
@@ -38,24 +38,27 @@
         </div>    
     </div>
     <nav [ngClass]="{'block' : menuOpen, 'hidden' : !menuOpen}"
-            class="md:hidden flex justify-center items-start transform transition-all duration-300 bg-bgc fixed w-full h-screen">
-        <ul class="text-2xl space-y-6 w-full p-8">
-            <li class="border-b-2 border-darkBlue">
+            class="md:hidden transform transition-all duration-300 bg-bgc fixed top-0 w-full h-screen">
+        <button (click)="closeMenu()">
+            <img src="assets/img/xmark-solid.svg" alt="image d'une crois pour fermer le menu" class="w-7 fixed right-0 pr-1">
+        </button>
+        <ul class="flex flex-col justify-center items-start text-2xl space-y-6 p-8">
+            <li class="border-b-2 border-darkBlue w-[90%] hover:text-lightBlue">
                 <a routerLink="artisan-list/Bâtiment" (click)="closeMenu()">
                     Bâtiment
                 </a>
             </li>
-            <li class="border-b-2 border-darkBlue">
+            <li class="border-b-2 border-darkBlue w-[90%] hover:text-lightBlue">
                 <a routerLink="artisan-list/Fabrication" (click)="closeMenu()">
                     Fabrication
                 </a>
             </li>
-            <li class="border-b-2 border-darkBlue">
+            <li class="border-b-2 border-darkBlue w-[90%] hover:text-lightBlue">
                 <a routerLink="artisan-list/Services" (click)="closeMenu()">
                     Services
                 </a>
             </li>
-            <li class="border-b-2 border-darkBlue">
+            <li class="border-b-2 border-darkBlue w-[90%] hover:text-lightBlue">
                 <a routerLink="artisan-list/Alimentation" (click)="closeMenu()">
                     Alimentation
                 </a>
@@ -64,7 +67,7 @@
     </nav>
     <div [ngClass]="{'block': searchBarOpen, 'hidden' : !searchBarOpen}" class="flex justify-start">
         <div class="flex justify-between border-b-2 border-r-2 p-2 mx-2 w-full md:hidden">
-            <input type="text" placeholder="recherche">
+            <input type="text" placeholder="recherche" class="">
             <img src="assets/img/magnifying-glass-solid.svg" alt="icon de recherche loupe" class="w-4">
         </div>
     </div>
