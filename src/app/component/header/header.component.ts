@@ -19,7 +19,8 @@ export class HeaderComponent {
   }
 
   closeMenu() {
-    this.menuOpen = false
+    this.menuOpen = false;
+    window.scrollTo({top : 0})
   }
 
   searchBar() {
