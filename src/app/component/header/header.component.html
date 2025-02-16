@@ -29,11 +29,18 @@
                     </li>
                 </ul>
             </nav>
-            <div class="max-md:hidden flex justify-end">
+            <div class="max-md:hidden flex flex-col justify-end">
                 <div class="flex justify-between border-b-2 border-r-2 p-2 mt-4 w-2/3 xl:w-70 xl:mt-0">
-                    <input type="text" placeholder="recherche">
+                    <input type="text" [(ngModel)]="searchTerm" placeholder="recherche" >
                     <img src="assets/img/magnifying-glass-solid.svg" alt="icon de recherche loupe" class="w-4">
                 </div>
+                <ul *ngIf="(searchTerm.length > 0)" class="max-h-[100px] w-2/3 xl:w-70 border-2 rounded-sm border-darkBlue overflow-y-auto text-[#0074c7]">
+                    <li *ngFor="let artisan of artisans | search : searchTerm" (click)="selectArtisan(artisan.id)" class="border-b-1 border-darkBlue p-2">
+                        {{artisan.name}} -
+                        {{artisan.location}} -
+                        {{artisan.specialty}}
+                    </li>
+                </ul>
             </div>
         </div>    
     </div>
@@ -65,10 +72,17 @@
             </li>
         </ul>
     </nav>
-    <div [ngClass]="{'block': searchBarOpen, 'hidden' : !searchBarOpen}" class="flex justify-start">
+    <div [ngClass]="{'block': searchBarOpen, 'hidden' : !searchBarOpen}" class="flex flex-col justify-start px-6">
         <div class="flex justify-between border-b-2 border-r-2 p-2 mx-2 w-full md:hidden">
-            <input type="text" placeholder="recherche" class="">
+            <input type="text" placeholder="recherche" [(ngModel)] = "searchTerm" class="grow">
             <img src="assets/img/magnifying-glass-solid.svg" alt="icon de recherche loupe" class="w-4">
         </div>
+        <ul *ngIf="(searchTerm.length > 0)" class="md:hidden flex-col max-h-[100px] w-full mx-2 border-2 rounded-sm border-darkBlue overflow-y-auto text-[#0074c7]">
+            <li *ngFor="let artisan of artisans | search : searchTerm" (click)="selectArtisan(artisan.id)" class="border-b-1 border-darkBlue p-2">
+                {{artisan.name}} -
+                {{artisan.location}} -
+                {{artisan.specialty}}
+            </li>
+        </ul>
     </div>
 </header>
