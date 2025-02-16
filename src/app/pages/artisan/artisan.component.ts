@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ArtisanService } from '../../services/artisan.service';
+import { Component, OnInit, inject } from '@angular/core';
 import { Artisan } from '../../model/artisan.model';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { ArtisanService } from '../../services/artisan.service';
 
 
 @Component({
@@ -11,14 +12,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './artisan.component.css'
 })
 
-export class ArtisanComponent implements OnInit {
-  artisans: Artisan[] = [];
+export class ArtisanComponent {
+  artisans : Artisan[] = []
 
-  constructor (private artisanService : ArtisanService) {}
+  artisanService = inject(ArtisanService);
 
   ngOnInit(): void {
-    this.artisanService.getArtisans().subscribe((data) =>{
-      this.artisans = data;
+    this.artisanService.getArtisans().subscribe(artisans => {
+      this.artisans = artisans
     })
-  }
+  }  
 }
