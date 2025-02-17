@@ -16,9 +16,10 @@ export class ArtisanService {
     return this.http.get<Artisan[]>(this.dataUrl)
   }
   
-  getArtisanById(id: number): Observable<Artisan |undefined> {
+  getArtisanById(id: number): Observable<Artisan | undefined> {
     return this.getArtisans().pipe(
-      map(artisans => artisans.find(artisan => artisan.id === id))
+      map(artisans =>
+        artisans.find(artisan => +artisan.id === id))
     )
   }
 }
