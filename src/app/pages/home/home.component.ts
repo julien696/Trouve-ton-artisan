@@ -3,11 +3,11 @@ import { ArtisanService } from '../../services/artisan.service';
 import { Artisan } from '../../model/artisan.model';
 import { CommonModule } from '@angular/common';
 import { FilteredArtisanByTopPipe } from '../../pipes/filtered-artisan-by-top.pipe';
-import { RouterLink } from '@angular/router';
+import { ArtisanCardComponent } from '../../component/artisan-card/artisan-card.component';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, FilteredArtisanByTopPipe, RouterLink],
+  imports: [CommonModule, FilteredArtisanByTopPipe, ArtisanCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

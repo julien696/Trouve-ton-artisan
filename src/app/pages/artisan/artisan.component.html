@@ -1,3 +1,5 @@
-<div *ngIf="artisan">
-    {{artisan.name}}
-</div>
+<main class="flex justify-center">
+    <div class="m-8 w-[70%]">
+        <app-artisan-card *ngIf="artisan" [artisan] = 'artisan' mode = "artisan" />
+    </div>
+</main>
