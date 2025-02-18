@@ -1,8 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Artisan } from '../../model/artisan.model';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
 import { ArtisanService } from '../../services/artisan.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -12,14 +12,29 @@ import { ArtisanService } from '../../services/artisan.service';
   styleUrl: './artisan.component.css'
 })
 
-export class ArtisanComponent {
-  artisans : Artisan[] = []
+export class ArtisanComponent implements OnInit {
+  
+  artisan : Artisan | undefined;
+ 
 
   artisanService = inject(ArtisanService);
+  route = inject(ActivatedRoute);
+  router = inject(Router)
 
   ngOnInit(): void {
-    this.artisanService.getArtisans().subscribe(artisans => {
-      this.artisans = artisans
-    })
-  }  
+
+      this.route.paramMap.subscribe(params =>{
+        const id = +(params.get('id')!);
+      
+        this.artisanService.getArtisanById(id).subscribe(
+      data => {
+        if(data){
+          this.artisan = data
+        }else{
+          this.router.navigate(['/404'])
+        }
+      }
+    )
+    })  
+  }
 }
