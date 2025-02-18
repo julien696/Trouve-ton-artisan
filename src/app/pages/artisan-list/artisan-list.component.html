@@ -1,5 +1,5 @@
-<ul>
-    <li *ngFor="let artisan of artisans | filteredArtisanByCategory : category">
-        {{artisan.name}}
-    </li>
-</ul>
+<main>
+    <div>
+        <app-artisan-card *ngFor="let artisan of artisans | filteredArtisanByCategory : category" [artisan]="artisan" mode="list" />
+    </div>
+</main>

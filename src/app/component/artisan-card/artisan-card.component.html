@@ -1,0 +1,24 @@
+<a  [routerLink]="['/artisan', artisan.id ]">
+    <div class="flex flex-col border-1 border-darkBlue rounded-lg items-center">
+        <h4 class="text-center text-lg text-darkBlue font-medium py-2 px-1">
+            {{artisan.name}}
+        </h4>
+        <span class="block px-2 text-base text-textColor">
+            {{artisan.specialty}}
+        </span>
+        <span class="block px-2 text-base text-textColor">
+            {{artisan.location}}
+        </span>
+        <span>
+            {{artisan.note}}
+        </span>
+        <ng-container *ngIf = "mode === 'artisan'" >
+            <p class="px-2 text-base text-textColor text-center">
+                {{artisan.about}}
+            </p>
+            <a href="{{artisan.website}}" class="block px-2 text-base text-textColor hover:text-lightBlue">
+                {{artisan.website}}
+            </a>
+        </ng-container>
+    </div>
+</a>

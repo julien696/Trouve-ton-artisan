@@ -3,11 +3,12 @@ import { Artisan } from '../../model/artisan.model';
 import { CommonModule } from '@angular/common';
 import { ArtisanService } from '../../services/artisan.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ArtisanCardComponent } from '../../component/artisan-card/artisan-card.component';
 
 
 @Component({
   selector: 'app-artisan',
-  imports: [CommonModule],
+  imports: [CommonModule, ArtisanCardComponent],
   templateUrl: './artisan.component.html',
   styleUrl: './artisan.component.css'
 })
