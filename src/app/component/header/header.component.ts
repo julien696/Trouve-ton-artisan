@@ -4,13 +4,13 @@ import { RouterLink, Router } from '@angular/router';
 import { ArtisanService } from '../../services/artisan.service';
 import { Artisan } from '../../model/artisan.model';
 import { FormsModule } from '@angular/forms' ;
-import { SearchPipe } from '../../pipes/search.pipe';
+
 
 
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, RouterLink, FormsModule, SearchPipe],
+  imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -20,10 +20,10 @@ export class HeaderComponent implements OnInit {
   router = inject(Router);
 
   artisans : Artisan[] = [];
-  menuOpen = false;
-  searchBarOpen = false;
-  searchTerm : string = '';
-  search : Artisan[] = [];
+  menuOpen : boolean = false;
+  searchBarOpen : boolean = false;
+  searchTerm : string ='';
+ 
   
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -44,9 +44,11 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  selectArtisan(id: number) {
-    this .router.navigate(['/artisan', id]);
-    this.searchTerm = ""
+  searchArtisan(){
+    if(this.searchTerm !== ''){
+      this.router.navigate(['artisan-list/:category'], {queryParams : {search : this.searchTerm} })
+    };
+    this.searchTerm = '' 
   }
-
 }
+

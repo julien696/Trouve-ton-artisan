@@ -7,7 +7,7 @@ import { Artisan } from '../model/artisan.model';
 export class SearchPipe implements PipeTransform {
 
   transform(artisans: Artisan[], searchTerm: string): Artisan[] {
-    if(!artisans || !searchTerm.trim()){
+    if(!artisans || !searchTerm){
       return []
     }
     searchTerm = searchTerm.toLocaleLowerCase().trim()

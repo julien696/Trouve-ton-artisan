@@ -1,5 +1,10 @@
 <main>
-    <div>
-        <app-artisan-card *ngFor="let artisan of artisans | filteredArtisanByCategory : category" [artisan]="artisan" mode="list" />
+    <div class="flex flex-wrap justify-center m-8 gap-x-8">
+        <app-artisan-card *ngFor="let artisan of artisans | filteredArtisanByCategory : category" [artisan]="artisan" mode="list" 
+        class="w-[300px] my-8"/>
+    </div>
+    <div class="flex flex-wrap justify-center m-8 gap-x-8">
+        <app-artisan-card *ngFor="let artisan of artisans | search : searchTerm" [artisan]="artisan" mode="list"
+        class="w-[300px] my-8"/>
     </div>
 </main>
