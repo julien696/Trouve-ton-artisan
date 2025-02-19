@@ -5,10 +5,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FilteredArtisanByCategoryPipe } from '../../pipes/filtered-artisan-by-category.pipe';
 import { ArtisanCardComponent } from "../../component/artisan-card/artisan-card.component";
+import { SearchPipe } from '../../pipes/search.pipe';
+
 
 @Component({
   selector: 'app-artisan-list',
-  imports: [CommonModule, FilteredArtisanByCategoryPipe, ArtisanCardComponent],
+  imports: [CommonModule, FilteredArtisanByCategoryPipe, ArtisanCardComponent, SearchPipe],
   templateUrl: './artisan-list.component.html',
   styleUrl: './artisan-list.component.css'
 })
@@ -16,9 +18,9 @@ import { ArtisanCardComponent } from "../../component/artisan-card/artisan-card.
 export class ArtisanListComponent implements OnInit {
 
   artisans: Artisan[] =[];
-  filteredArtisansByCategory: Artisan[] = [];
   category: string | null = '';
-  validCategory: string[] = ['Bâtiment','Fabrication','Services','Alimentation']
+  searchTerm : string = '';
+  
 
   artisanService = inject(ArtisanService);
   route = inject(ActivatedRoute);
@@ -26,23 +28,20 @@ export class ArtisanListComponent implements OnInit {
 
   ngOnInit(): void {
     
+    this.artisanService.getArtisans().subscribe(data => {
+      this.artisans = data; console.log(this.artisans)
+    });
+
+    this.route.queryParams.subscribe(params =>{
+      this.searchTerm = params['search'] || ''
+    });
+    
     this.route.paramMap.subscribe(params => {
       this.category = params.get('category');
-    
-      if( this.category && !this.validCategory.includes(this.category)) {
-        this.router.navigate(['/404']);
-        return
-      }  
       
-      this.loadArtisans();
     });
   }
-
-    loadArtisans(): void{
-      this.artisanService.getArtisans().subscribe(artisans => {
-        this.artisans = artisans;
-      })
-    }
-  }
+ 
+}
 
 
