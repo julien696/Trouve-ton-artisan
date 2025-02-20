@@ -1,5 +1,35 @@
 <main class="flex justify-center">
     <div class="m-8 w-[70%]">
         <app-artisan-card *ngIf="artisan" [artisan] = 'artisan' mode = "artisan" />
+        <div class="flex flex-col items-center my-8">
+            <h1 class="text-2xl text-darkBlue font-semibold my-4">Contacter votre artisan</h1>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" 
+            class="flex flex-col border-1 border-darkBlue rounded-lg items-center w-full">
+                <input type="text" formControlName="name" placeholder="Prénom" required />
+                <span *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+                    <small>
+                         Veuillez saisir votre prénom.
+                    </small>
+                </span>
+                <input type="text" formControlName="lastName" placeholder="Nom" required />
+                <span *ngIf="contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched">
+                    <small>
+                        Veuillez saisir votre nom.
+                    </small>
+                </span>
+                <input type="email" formControlName="email" placeholder="email" required />
+                <span *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                    <small>
+                        Veuillez entrer une adresse mail valide.
+                    </small>
+                </span>
+                <textarea formControlName="message" placeholder="message ..." required rows="5"></textarea>
+                <span *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+                    <small>
+                        Veuillez saisir votre message.
+                    </small>
+                </span>
+            </form>
+        </div>
     </div>
 </main>

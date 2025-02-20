@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   artisans : Artisan[] = [];
 
 
-  artisanService = inject(ArtisanService);
+  private artisanService = inject(ArtisanService);
 
   ngOnInit(): void {
     this.artisanService.getArtisans().subscribe(artisans => {
