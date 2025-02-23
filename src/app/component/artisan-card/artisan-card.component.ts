@@ -7,7 +7,6 @@ import { RouterLink } from '@angular/router';
   selector: 'app-artisan-card',
   imports: [CommonModule, RouterLink],
   templateUrl: './artisan-card.component.html',
-  styleUrl: './artisan-card.component.css'
 })
 export class ArtisanCardComponent {
 

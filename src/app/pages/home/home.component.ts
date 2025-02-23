@@ -9,7 +9,6 @@ import { ArtisanCardComponent } from '../../component/artisan-card/artisan-card.
   selector: 'app-home',
   imports: [CommonModule, FilteredArtisanByTopPipe, ArtisanCardComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
   

@@ -11,7 +11,6 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } 
   selector: 'app-artisan',
   imports: [CommonModule, ArtisanCardComponent, ReactiveFormsModule],
   templateUrl: './artisan.component.html',
-  styleUrl: './artisan.component.css'
 })
 
 export class ArtisanComponent implements OnInit {

@@ -1,4 +1,13 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: "Graphik";
+    font-style: normal;
+    font-weight: 200 700;
+    src: url("/assets/font/Graphik-Regular.woff2");
+    src: url("/assets/font/Graphik-Regular.woff");
+    src: url("/assets/font/Graphik-Regular.ttf") format("truetype");
+};
    
 @theme {
     --color-bgc: #f1f8fc;
@@ -6,4 +15,8 @@
     --color-darkBlue: #00497c;
     --color-textColor: #384050;
     --color-danger: #cd2c2e;
+}
+
+*{
+    font-family: "Graphik";
 }
