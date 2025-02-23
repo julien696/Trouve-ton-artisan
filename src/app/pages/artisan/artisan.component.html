@@ -1,5 +1,54 @@
 <main class="flex justify-center">
     <div class="m-8 w-[70%]">
         <app-artisan-card *ngIf="artisan" [artisan] = 'artisan' mode = "artisan" />
+        <div class="flex flex-col items-center my-8">
+            <h1 *ngIf="artisan" class="text-2xl text-darkBlue font-semibold my-4">Contactez {{artisan.name}}</h1>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" 
+            class="flex flex-col border-1 border-darkBlue rounded-lg items-center w-full">
+                <div class="flex flex-col w-full p-4">
+                    <label for="name">Prénom :</label>
+                    <input type="text" id="name" formControlName="name" placeholder="Prénom" required 
+                    class="border border-darkBlue rounded-lg mt-4"/>
+                    <span *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="text-danger">
+                        <small>
+                            Veuillez saisir votre prénom.
+                        </small>
+                    </span>
+                </div>
+                <div class="flex flex-col w-full p-4">
+                    <label for="lastName">Nom :</label>
+                    <input type="text" id="lastName" formControlName="lastName" placeholder="Nom" required 
+                    class="border border-darkBlue rounded-lg mt-4"/>
+                    <span *ngIf="contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched" class="text-danger">
+                        <small>
+                            Veuillez saisir votre nom.
+                        </small>
+                    </span>
+                </div>
+                <div class="flex flex-col w-full p-4">
+                    <label for="email">Votre adresse mail</label>
+                    <input type="email" id="email" formControlName="email" placeholder="email" required 
+                    class="border border-darkBlue rounded-lg mt-4"/>
+                    <span *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="text-danger">
+                        <small>
+                            Veuillez entrer une adresse mail valide.
+                        </small>
+                    </span>
+                </div>
+                <div class="w-full p-4">
+                    <textarea formControlName="message" placeholder="message ..." required rows="5" 
+                    class="border border-darkBlue rounded-lg w-full "></textarea>
+                    <span *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="text-danger">
+                        <small>
+                            Veuillez saisir votre message.
+                        </small>
+                    </span>
+                </div>
+                <input type="submit" (click)="onSubmit()" [disabled]="contactForm.invalid"
+                class="bg-lightBlue text-bgc max-md:w-[140px] w-[25%] p-2 my-2 rounded-lg cursor-pointer border border-darkBlue 
+                disabled:bg-gray-400 disabled:cursor-not-allowed">
+
+            </form>
+        </div>
     </div>
 </main>

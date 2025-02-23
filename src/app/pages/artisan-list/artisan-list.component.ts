@@ -22,15 +22,13 @@ export class ArtisanListComponent implements OnInit {
   searchTerm : string = '';
   
 
-  artisanService = inject(ArtisanService);
-  route = inject(ActivatedRoute);
-  router = inject(Router);
+  private artisanService = inject(ArtisanService);
+  private route = inject(ActivatedRoute);
+ 
 
   ngOnInit(): void {
     
-    this.artisanService.getArtisans().subscribe(data => {
-      this.artisans = data; console.log(this.artisans)
-    });
+    this.artisanService.getArtisans().subscribe(data => this.artisans = data);
 
     this.route.queryParams.subscribe(params =>{
       this.searchTerm = params['search'] || ''

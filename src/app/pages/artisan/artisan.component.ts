@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { ArtisanService } from '../../services/artisan.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArtisanCardComponent } from '../../component/artisan-card/artisan-card.component';
+import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 
 @Component({
   selector: 'app-artisan',
-  imports: [CommonModule, ArtisanCardComponent],
+  imports: [CommonModule, ArtisanCardComponent, ReactiveFormsModule],
   templateUrl: './artisan.component.html',
   styleUrl: './artisan.component.css'
 })
@@ -16,26 +17,46 @@ import { ArtisanCardComponent } from '../../component/artisan-card/artisan-card.
 export class ArtisanComponent implements OnInit {
   
   artisan : Artisan | undefined;
+  contactForm : FormGroup;
  
 
-  artisanService = inject(ArtisanService);
-  route = inject(ActivatedRoute);
-  router = inject(Router)
+  private artisanService = inject(ArtisanService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  
+  constructor(private fb: FormBuilder) {
+    this.contactForm = this.fb.group({
+      name : ['', [Validators.required, Validators.minLength(1)]],
+      lastName : ['', [Validators.required, Validators.minLength(1)]],
+      email : ['',[Validators.required, Validators.email]],
+      message : ['',[Validators.required]]
+       });
+      }
+
 
   ngOnInit(): void {
 
       this.route.paramMap.subscribe(params =>{
         const id = +(params.get('id')!);
-      
         this.artisanService.getArtisanById(id).subscribe(
-      data => {
-        if(data){
-          this.artisan = data
-        }else{
-          this.router.navigate(['/404'])
-        }
+          data => {
+            if(data){
+              this.artisan = data
+            }else{
+              this.router.navigate(['/404'])
+            }
+          });
+        })  
+      };
+      
+
+    onSubmit() : void {
+      if(this.contactForm.valid){
+        alert('Message envoyé');
+        this.contactForm.reset();
       }
-    )
-    })  
+    }
+
   }
-}
+  
+      
