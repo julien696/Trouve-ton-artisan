@@ -1,4 +1,5 @@
 <main>
+    <h1 *ngIf="artisans" class="max-sm:text-2xl sm:text-3xl text-darkBlue text-center font-bold p-6 m-6"> Liste des Artisans {{category}}</h1>
     <div class="flex flex-wrap justify-center m-8 gap-x-8">
         <app-artisan-card *ngFor="let artisan of artisans | filteredArtisanByCategory : category" [artisan]="artisan" mode="list" 
         class="w-[300px] my-8"/>

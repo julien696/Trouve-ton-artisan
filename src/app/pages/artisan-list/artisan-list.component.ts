@@ -12,13 +12,14 @@ import { SearchPipe } from '../../pipes/search.pipe';
   selector: 'app-artisan-list',
   imports: [CommonModule, FilteredArtisanByCategoryPipe, ArtisanCardComponent, SearchPipe],
   templateUrl: './artisan-list.component.html',
-  styleUrl: './artisan-list.component.css'
 })
 
 export class ArtisanListComponent implements OnInit {
 
+  artisan: Artisan | undefined;
   artisans: Artisan[] =[];
   category: string | null = '';
+  validCategory : string[] = ['Bâtiment','Fabrication','Services','Alimentation']
   searchTerm : string = '';
   
 

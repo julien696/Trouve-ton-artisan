@@ -1,4 +1,5 @@
-<footer class="bg-lightBlue md:flex justify-evenly text-white">
+<footer>
+    <div class="bg-lightBlue md:flex justify-evenly text-white">
         <div class=" p-4 m-4 max-md:border-b-2  md:border-r-2 pr-16">
             <h3 class="my-2 text-xl font-medium">Lyon</h3>
             <address>
@@ -11,23 +12,23 @@
                 <a href="tel:+33426734000">+33 (0)4 26 73 40 00</a>
             </address>
         </div>
-        <div class="flex flex-col p-8 items-start">
+        <div class="flex flex-col items-start p-4 m-4">
             <h3 class="my-2 text-xl font-medium">Pages</h3>
             <div class="flex max-md:gap-x-[4rem] md:gap-x-[6rem]">
                 <div class="flex-col">
-                    <a href="">
+                    <a routerLink="/" (click)="scrollToTop()">
                         Accueil
                     </a><br>
-                    <a href="">
+                    <a routerLink="artisan-list/Bâtiment" (click)="scrollToTop()">
                         Bâtiment
                     </a><br>
-                    <a href="">
+                    <a routerLink="artisan-list/Fabrication" (click)="scrollToTop()">
                         Fabrication
                     </a><br>
-                    <a href="">
+                    <a routerLink="artisan-list/Services" (click)="scrollToTop()">
                         Services
                     </a><br>
-                    <a href="">
+                    <a routerLink="artisan-list/Alimentation" (click)="scrollToTop()">
                         Alimentation
                     </a>
                 </div>
@@ -47,4 +48,22 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="flex p-4 justify-center gap-x-4">
+        <a href="https://www.facebook.com/RegionAuvergneRhoneAlpes" target="_blank">
+            <img src="assets/img/logo_facebook.png" alt="logo de faceboock" class="h-[32px]">
+        </a>
+        <a href="https://www.linkedin.com/company/auvergne-rhone-alpes" target="_blank">
+            <img src="assets/img/linkedin-brands.svg" alt="logo de linkedin" class="h-[32px]">
+        </a>
+        <a href="https://www.youtube.com/c/regionauvergnerhonealpes" target="_blank">
+            <img src="assets/img/youtube-brands.svg" alt="logo de youtube" class="h-[32px]">
+        </a>
+        <a href="https://www.instagram.com/region_auvergnerhonealpes/" target="_blank">
+            <img src="assets/img/logo_instagram.jpg" alt="logo de instagram" class="h-[32px]">
+        </a>
+        <a href="https://x.com/auvergnerhalpes?mx=2" target="_blank">
+            <img src="assets/img/logo_x.jpg" alt="logo de x" class="h-[32px]">
+        </a>
+    </div>
 </footer>
