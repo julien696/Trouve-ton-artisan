@@ -54,8 +54,6 @@ export class ArtisanComponent implements OnInit {
       if(this.contactForm.valid){
         alert('Message envoyé');
         this.contactForm.reset();
-      }else{
-        alert('Veuillez remplir tous les champs')
       }
     }
 
