@@ -4,7 +4,7 @@
             <img src="assets/img/Logo.jpg" alt="Logo de Trouve ton artisan avec la région Auvergne-Rhône-Alpes" class="max-w-50 md:max-w-60">
         </a>
         <div class="flex justify-end gap-x-8 w-full pr-4">
-            <button (click)="toggleMenu()" class="md:hidden block hover:cursor-pointer">
+            <button (click)="toggleMenu()" class="md:hidden block hover:cursor-pointer" >
                 <img *ngIf="!menuOpen" src="assets/img/bars-solid.svg" alt="menu burger" class="w-7">
                 <img *ngIf="menuOpen" src="assets/img/xmark-solid.svg" alt="image d'une crois pour fermer le menu" class="w-7">
             </button>
@@ -31,7 +31,7 @@
             </nav>
             <div class="max-md:hidden flex flex-col justify-end">
                 <div class="flex justify-between border-b-2 border-r-2 p-2 mt-4 w-2/3 xl:w-70 xl:mt-0">
-                    <input type="text" placeholder="recherche" [(ngModel)] = "searchTerm" class="grow">
+                    <input type="text" name="search" placeholder="recherche" [(ngModel)] = "searchTerm" class="grow">
                     <button (click)="searchArtisan()">
                         <img src="assets/img/magnifying-glass-solid.svg" alt="icon de recherche loupe" class="w-4">
                     </button>
@@ -69,7 +69,7 @@
     </nav>
     <div [ngClass]="{'block': searchBarOpen, 'hidden' : !searchBarOpen}" class="flex flex-col justify-start px-6">
         <div class="flex justify-between border-b-2 border-r-2 p-2 mx-2 w-full md:hidden">
-            <input type="text" placeholder="recherche" [(ngModel)] = "searchTerm" class="grow">
+            <input type="text" name="search" placeholder="recherche" [(ngModel)] = "searchTerm" class="grow">
             <button (click)="searchArtisan()">
                 <img src="assets/img/magnifying-glass-solid.svg" alt="icon de recherche loupe" class="w-4">
             </button>
