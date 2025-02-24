@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Artisan } from '../../model/artisan.model';
 import { ArtisanService } from '../../services/artisan.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FilteredArtisanByCategoryPipe } from '../../pipes/filtered-artisan-by-category.pipe';
 import { ArtisanCardComponent } from "../../component/artisan-card/artisan-card.component";
@@ -19,7 +19,7 @@ export class ArtisanListComponent implements OnInit {
   artisan: Artisan | undefined;
   artisans: Artisan[] =[];
   category: string | null = '';
-  validCategory : string[] = ['Bâtiment','Fabrication','Services','Alimentation']
+  validCategory : string[] = ["Bâtiment, Services, Fabrication, Alimentation"]
   searchTerm : string = '';
   
 
@@ -40,6 +40,7 @@ export class ArtisanListComponent implements OnInit {
       
     });
   }
+
  
 }
 
