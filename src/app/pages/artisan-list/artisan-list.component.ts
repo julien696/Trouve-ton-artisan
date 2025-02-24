@@ -19,7 +19,6 @@ export class ArtisanListComponent implements OnInit {
   artisan: Artisan | undefined;
   artisans: Artisan[] =[];
   category: string | null = '';
-  validCategory : string[] = ["Bâtiment, Services, Fabrication, Alimentation"]
   searchTerm : string = '';
   
 
