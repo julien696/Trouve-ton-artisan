@@ -2,7 +2,7 @@
     <div class="mx-6 mt-6">
         <h2 class="max-sm:text-xl sm:text-2xl text-darkBlue text-center font-semibold m-4 p-4">Les Artisans du mois</h2>
         <div class="flex max-[600px]:justify-start justify-center max-md:gap-x-4 gap-x-8 pt-4 py-2 overflow-x-auto">
-            <app-artisan-card *ngFor="let artisan of artisans | filteredArtisanByTop : true" [artisan]="artisan" mode="list" class="min-w-[170px] sm:w-[200px] md:w-[250px] lg:w-[300px]">
+            <app-artisan-card *ngFor="let artisan of artisans | filteredArtisanByTop : true" [artisan]="artisan" mode="list" class="min-w-[200px] sm:w-[200px] md:w-[250px] lg:w-[300px]">
             </app-artisan-card>
         </div>
     </div>
