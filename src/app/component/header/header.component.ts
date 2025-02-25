@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
   
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+    this.searchBarOpen = false
   }
 
   closeMenu() {
@@ -47,7 +48,8 @@ export class HeaderComponent implements OnInit {
     if(this.searchTerm !== ''){
       this.router.navigate(['artisan-list/:category'], {queryParams : {search : this.searchTerm} })
     };
-    this.searchTerm = '' 
+    this.searchTerm = '';
+    this.searchBarOpen = false; 
   }
 }
 

@@ -51,7 +51,7 @@ export class ArtisanComponent implements OnInit {
 
     onSubmit() : void {
       if(this.contactForm.valid){
-        alert('Message envoyé');
+        alert('Votre message est envoyé. Une réponse vous sera apporté sous 48h');
         this.contactForm.reset();
       }
     }
