@@ -11,5 +11,15 @@ import { RouterLink } from '@angular/router';
 export class ArtisanCardComponent {
 
   @Input() artisan! : Artisan;
-  @Input() mode: 'list' | 'artisan' = 'list'
+  @Input() mode: 'list' | 'artisan' = 'list';
+  note : number = 0;
+
+  getStars(note: number): any[] {
+    return new Array(Math.floor(note))
+  }
+
+  getHalfStar(note : number): boolean {
+    return note % 1 >= 0.5;
+  }
+  
 }

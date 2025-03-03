@@ -1,6 +1,7 @@
 # Trouve Ton Artisan
 
-Projet réalisé avec Angular CLI version 19.1.6 et Taillwind CSS v4.0
+Projet réalisé avec Angular CLI version 19.1.6 et Taillwind CSS v4.0.
+Application hébergée [https://trouve-ton-artisan-9m61.vercel.app/](https://trouve-ton-artisan-9m61.vercel.app/)
 
 ## Pour lancer ce projet
 
