@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Artisan } from '../../model/artisan.model';
 import { ArtisanService } from '../../services/artisan.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FilteredArtisanByCategoryPipe } from '../../pipes/filtered-artisan-by-category.pipe';
 import { ArtisanCardComponent } from "../../component/artisan-card/artisan-card.component";
@@ -24,6 +24,7 @@ export class ArtisanListComponent implements OnInit {
 
   private artisanService = inject(ArtisanService);
   private route = inject(ActivatedRoute);
+  private router = inject(Router)
  
 
   ngOnInit(): void {
@@ -33,7 +34,7 @@ export class ArtisanListComponent implements OnInit {
     this.route.queryParams.subscribe(params =>{
       this.searchTerm = params['search'] || ''
     });
-    
+        
     this.route.paramMap.subscribe(params => {
       this.category = params.get('category');
       
