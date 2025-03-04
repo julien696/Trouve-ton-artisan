@@ -1,10 +1,11 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Artisan } from '../../model/artisan.model';
 import { CommonModule } from '@angular/common';
 import { ArtisanService } from '../../services/artisan.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArtisanCardComponent } from '../../component/artisan-card/artisan-card.component';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } 
   templateUrl: './artisan.component.html',
 })
 
-export class ArtisanComponent implements OnInit {
+export class ArtisanComponent implements OnInit, OnDestroy {
   
   artisan : Artisan | undefined;
   contactForm : FormGroup;
@@ -23,6 +24,8 @@ export class ArtisanComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   
+  idRouteSubcription : Subscription | null = null
+
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       name : ['', [Validators.required, Validators.minLength(1)]],
@@ -35,7 +38,7 @@ export class ArtisanComponent implements OnInit {
 
   ngOnInit(): void {
 
-      this.route.paramMap.subscribe(params =>{
+      this.idRouteSubcription = this.route.paramMap.subscribe(params =>{
         const id = +(params.get('id')!);
         this.artisanService.getArtisanById(id).subscribe(
           data => {
@@ -48,6 +51,10 @@ export class ArtisanComponent implements OnInit {
         })  
       };
       
+
+      ngOnDestroy(): void {
+        this.idRouteSubcription?.unsubscribe();
+      }
 
     onSubmit() : void {
       if(this.contactForm.valid){

@@ -10,7 +10,9 @@
         class="w-[300px] my-8"/>
     </div>
     <div *ngIf="(artisans | search: searchTerm)?.length === 0 && searchTerm" class="flex justify-center mb-12">
-        <p class="text-textColor w-[70%] text-xl text-center">Aucun artisan trouvé. Veuillez effectuer une autre recherche ou utilisez les différentes catégories.</p>
+        <p class="text-textColor w-[70%] text-xl text-center">
+            Aucun artisan trouvé. Veuillez effectuer une autre recherche ou utilisez les différentes catégories.
+        </p>
     </div>
     
 </main>
